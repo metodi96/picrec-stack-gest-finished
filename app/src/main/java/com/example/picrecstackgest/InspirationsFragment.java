@@ -23,19 +23,24 @@ import static android.content.Context.SENSOR_SERVICE;
 
 public class InspirationsFragment extends Fragment implements SensorEventListener {
     private Tooltip tooltip;
-    //more to add
     private HashMap<String, Integer> rolesToPoints = new HashMap<String, Integer>() {{
+        put("actionseek1", 0);
         put("active1", 0);
-        put("drifter1", 0);
-        put("escapist1", 0);
-        put("sun2",0);
-        put("sun1",0);
+        put("anthro2", 0);
         put("arch1",0);
-        put("arch2",0);
         put("classy1",0);
-        put("drifter2", 0);
+        put("drifter2",0);
+        put("educational1",0);
+        put("escapist1",0);
+        put("escapisttwo2", 0);
+        put("explorer2", 0);
+        put("independent1", 0);
+        put("independenttwo1", 0);
+        put("organized1", 0);
+        put("seeker1", 0);
+        put("sun1", 0);
+        put("thrill2", 0);
     }};
-
     ProfileFragment profileFragment = MainActivity.profileFragment;
     private CardStack cardStack;
     private CardAdapter cardAdapter;
