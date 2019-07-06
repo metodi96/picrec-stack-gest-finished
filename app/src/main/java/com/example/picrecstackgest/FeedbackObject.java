@@ -1,17 +1,47 @@
 package com.example.picrecstackgest;
 
 class FeedbackObject {
-    private String name;
-    private String feedback;
     private String gender;
     private String ageGroup;
-    private String websitesUsed;
-    private String generatedProfileMatchChoices;
-    private String choiceImagesAppeal;
-    private String manipulatedPicturesEnjoy;
-    private String allowedLikeDislike;
-    private String happyWithGeneratedProfile;
+    private String recommendersUsed;
+    private String attractiveImages;
+    private String generatedProfileMatchesChoices;
+    private String tiltingEnjoyment;
+    private String preferTilting;
+    private String preferSwipingOverTilting;
+    private String easyToTellLikeDislike;
     private String attractiveLayout;
+    private String adequateLayout;
+    private String quicklyFamiliarWithRecommender;
+    private String inControl;
+    private String satisfaction;
+    private String futureUse;
+
+    public FeedbackObject(String gender, String ageGroup, String recommendersUsed, String attractiveImages, String generatedProfileMatchesChoices, String tiltingEnjoyment, String preferTilting, String preferSwipingOverTilting, String easyToTellLikeDislike, String attractiveLayout, String adequateLayout, String quicklyFamiliarWithRecommender, String inControl, String satisfaction, String futureUse) {
+        this.gender = gender;
+        this.ageGroup = ageGroup;
+        this.recommendersUsed = recommendersUsed;
+        this.attractiveImages = attractiveImages;
+        this.generatedProfileMatchesChoices = generatedProfileMatchesChoices;
+        this.tiltingEnjoyment = tiltingEnjoyment;
+        this.preferTilting = preferTilting;
+        this.preferSwipingOverTilting = preferSwipingOverTilting;
+        this.easyToTellLikeDislike = easyToTellLikeDislike;
+        this.attractiveLayout = attractiveLayout;
+        this.adequateLayout = adequateLayout;
+        this.quicklyFamiliarWithRecommender = quicklyFamiliarWithRecommender;
+        this.inControl = inControl;
+        this.satisfaction = satisfaction;
+        this.futureUse = futureUse;
+    }
+
+    public String getPreferTilting() {
+        return preferTilting;
+    }
+
+    public void setPreferTilting(String preferTilting) {
+        this.preferTilting = preferTilting;
+    }
 
     public String getGender() {
         return gender;
@@ -29,52 +59,52 @@ class FeedbackObject {
         this.ageGroup = ageGroup;
     }
 
-    public String getWebsitesUsed() {
-        return websitesUsed;
+    public String getRecommendersUsed() {
+        return recommendersUsed;
     }
 
-    public void setWebsitesUsed(String websitesUsed) {
-        this.websitesUsed = websitesUsed;
+    public void setRecommendersUsed(String recommendersUsed) {
+        this.recommendersUsed = recommendersUsed;
     }
 
-    public String getGeneratedProfileMatchChoices() {
-        return generatedProfileMatchChoices;
+    public String getAttractiveImages() {
+        return attractiveImages;
     }
 
-    public void setGeneratedProfileMatchChoices(String generatedProfileMatchChoices) {
-        this.generatedProfileMatchChoices = generatedProfileMatchChoices;
+    public void setAttractiveImages(String attractiveImages) {
+        this.attractiveImages = attractiveImages;
     }
 
-    public String getChoiceImagesAppeal() {
-        return choiceImagesAppeal;
+    public String getGeneratedProfileMatchesChoices() {
+        return generatedProfileMatchesChoices;
     }
 
-    public void setChoiceImagesAppeal(String choiceImagesAppeal) {
-        this.choiceImagesAppeal = choiceImagesAppeal;
+    public void setGeneratedProfileMatchesChoices(String generatedProfileMatchesChoices) {
+        this.generatedProfileMatchesChoices = generatedProfileMatchesChoices;
     }
 
-    public String getManipulatedPicturesEnjoy() {
-        return manipulatedPicturesEnjoy;
+    public String getTiltingEnjoyment() {
+        return tiltingEnjoyment;
     }
 
-    public void setManipulatedPicturesEnjoy(String manipulatedPicturesEnjoy) {
-        this.manipulatedPicturesEnjoy = manipulatedPicturesEnjoy;
+    public void setTiltingEnjoyment(String tiltingEnjoyment) {
+        this.tiltingEnjoyment = tiltingEnjoyment;
     }
 
-    public String getAllowedLikeDislike() {
-        return allowedLikeDislike;
+    public String getPreferSwipingOverTilting() {
+        return preferSwipingOverTilting;
     }
 
-    public void setAllowedLikeDislike(String allowedLikeDislike) {
-        this.allowedLikeDislike = allowedLikeDislike;
+    public void setPreferSwipingOverTilting(String preferSwipingOverTilting) {
+        this.preferSwipingOverTilting = preferSwipingOverTilting;
     }
 
-    public String getHappyWithGeneratedProfile() {
-        return happyWithGeneratedProfile;
+    public String getEasyToTellLikeDislike() {
+        return easyToTellLikeDislike;
     }
 
-    public void setHappyWithGeneratedProfile(String happyWithGeneratedProfile) {
-        this.happyWithGeneratedProfile = happyWithGeneratedProfile;
+    public void setEasyToTellLikeDislike(String easyToTellLikeDislike) {
+        this.easyToTellLikeDislike = easyToTellLikeDislike;
     }
 
     public String getAttractiveLayout() {
@@ -85,12 +115,20 @@ class FeedbackObject {
         this.attractiveLayout = attractiveLayout;
     }
 
-    public String getFamiliarWithSystem() {
-        return familiarWithSystem;
+    public String getAdequateLayout() {
+        return adequateLayout;
     }
 
-    public void setFamiliarWithSystem(String familiarWithSystem) {
-        this.familiarWithSystem = familiarWithSystem;
+    public void setAdequateLayout(String adequateLayout) {
+        this.adequateLayout = adequateLayout;
+    }
+
+    public String getQuicklyFamiliarWithRecommender() {
+        return quicklyFamiliarWithRecommender;
+    }
+
+    public void setQuicklyFamiliarWithRecommender(String quicklyFamiliarWithRecommender) {
+        this.quicklyFamiliarWithRecommender = quicklyFamiliarWithRecommender;
     }
 
     public String getInControl() {
@@ -101,14 +139,6 @@ class FeedbackObject {
         this.inControl = inControl;
     }
 
-    public String getUnderstoodProfile() {
-        return understoodProfile;
-    }
-
-    public void setUnderstoodProfile(String understoodProfile) {
-        this.understoodProfile = understoodProfile;
-    }
-
     public String getSatisfaction() {
         return satisfaction;
     }
@@ -117,60 +147,11 @@ class FeedbackObject {
         this.satisfaction = satisfaction;
     }
 
-    public String getUseInTheFuture() {
-        return useInTheFuture;
+    public String getFutureUse() {
+        return futureUse;
     }
 
-    public void setUseInTheFuture(String useInTheFuture) {
-        this.useInTheFuture = useInTheFuture;
-    }
-
-    private String familiarWithSystem;
-    private String inControl;
-    private String understoodProfile;
-    private String satisfaction;
-    private String useInTheFuture;
-
-
-    public FeedbackObject(String name, String feedback, String gender, String ageGroup,
-                          String generatedProfileMatchChoices, String choiceImagesAppeal, String manipulatedPicturesEnjoy,
-                          String allowedLikeDislike, String happyWithGeneratedProfile, String attractiveLayout,
-                          String familiarWithSystem, String inControl, String understoodProfile,
-                          String satisfaction, String useInTheFuture) {
-        this.name = name;
-        this.feedback = feedback;
-        this.gender = gender;
-        this.ageGroup = ageGroup;
-        this.websitesUsed = websitesUsed;
-        this.generatedProfileMatchChoices = generatedProfileMatchChoices;
-        this.choiceImagesAppeal = choiceImagesAppeal;
-        this.manipulatedPicturesEnjoy = manipulatedPicturesEnjoy;
-        this.allowedLikeDislike = allowedLikeDislike;
-        this.happyWithGeneratedProfile = happyWithGeneratedProfile;
-        this.attractiveLayout = attractiveLayout;
-        this.familiarWithSystem = familiarWithSystem;
-        this.inControl = inControl;
-        this.understoodProfile = understoodProfile;
-        this.satisfaction = satisfaction;
-        this.useInTheFuture = useInTheFuture;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getFeedback() {
-        return feedback;
-    }
-
-    public void setFeedback(String feedback) {
-        this.feedback = feedback;
+    public void setFutureUse(String futureUse) {
+        this.futureUse = futureUse;
     }
 }
-
-
-
