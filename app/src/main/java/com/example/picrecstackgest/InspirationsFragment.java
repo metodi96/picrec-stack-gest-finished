@@ -12,7 +12,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import com.tooltip.Tooltip;
 import com.wenchao.cardstack.CardStack;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,7 +21,6 @@ import static android.content.Context.SENSOR_SERVICE;
 
 
 public class InspirationsFragment extends Fragment implements SensorEventListener {
-    private Tooltip tooltip;
     private HashMap<String, Integer> rolesToPoints = new HashMap<String, Integer>() {{
         put("actionseek1", 0);
         put("active1", 0);
@@ -57,10 +55,8 @@ public class InspirationsFragment extends Fragment implements SensorEventListene
             cardStack = v.findViewById(R.id.card_stack);
             cardStack.setContentResource(R.layout.pictures_inspirations);
             cardStack.setAdapter(cardAdapter);
-            cardStack.bringToFront();
-            cardStack.setClipToOutline(true);
-            ImageButton unlike = v.findViewById(R.id.unlike);
-            unlike.setOnClickListener(new View.OnClickListener() {
+            ImageButton dislike = v.findViewById(R.id.dislike);
+            dislike.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     cardStack.discardTop(2);
@@ -80,15 +76,13 @@ public class InspirationsFragment extends Fragment implements SensorEventListene
             }
         });
 
-        ImageButton undo = v.findViewById(R.id.undo);
-        undo.setOnClickListener(new View.OnClickListener() {
+        ImageButton reset = v.findViewById(R.id.reset);
+        reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (counter > 0) {
                     cardStack.reset(true);
-                    for (int i = 0; i<counter; i++) {
-                        points.remove(0);
-                    }
+                    points.removeAll(points);
                     counter=0;
                     savePoints(counter);
                 }
@@ -104,14 +98,8 @@ public class InspirationsFragment extends Fragment implements SensorEventListene
                             case 1:
                                 return false;
                             case 2:
-                                /*counter++;
-                                points.add(0);
-                                savePoints(counter);*/
                                 return false;
                             case 3:
-                               /* counter++;
-                                points.add(1);
-                                savePoints(counter);*/
                                 return false;
                         }
                    return v > 300;
@@ -153,28 +141,6 @@ public class InspirationsFragment extends Fragment implements SensorEventListene
         }
     }
 
-    /*
-    public void resetPoints() {
-        Button resetPoints = getView().findViewById(R.id.reset);
-        resetPoints.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                   for (Map.Entry<String, Integer> entry : rolesToPoints.entrySet()) {
-                        String key = entry.getKey();
-                        rolesToPoints.put(key, 50);
-                    }
-                    InspirationsFragment fragment = (InspirationsFragment)
-                            getFragmentManager().findFragmentById(R.id.fragment_container);
-
-                    getFragmentManager().beginTransaction()
-                            .detach(fragment)
-                            .attach(fragment)
-                            .commit();
-                }
-            });
-    }*/
-
     public void savePoints(int counter) {
         if(counter >= rolesToPoints.size()) {
             modifyHashmap(rolesToPoints, points);
@@ -191,28 +157,24 @@ public class InspirationsFragment extends Fragment implements SensorEventListene
         }
         return hashMap;
     }
+
     private int countSensorData = 0;
     @Override
     public void onSensorChanged(SensorEvent event) {
         float x = event.values[0];
-        System.out.println("Value of x is " + x);
         countSensorData++;
-           if (x < -5 && counter < rolesToPoints.size() && countSensorData%15 == 0) {
-               System.out.println("Device tilted to the right!");
+           if (x < -5 && counter < rolesToPoints.size() && countSensorData%10 == 0) {
                cardStack.discardTop(3);
                counter++;
                points.add(1);
                savePoints(counter);
            }
 
-            if (x > 5 && counter < rolesToPoints.size() && countSensorData%15 == 0) {
-                System.out.println("Device tilted to the left!");
+            if (x > 5 && counter < rolesToPoints.size() && countSensorData%10 == 0) {
                 cardStack.discardTop(2);
                 counter++;
                 points.add(0);
                 savePoints(counter);
-                sensorManager.unregisterListener(this);
-                sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL);
             }
        }
     @Override
